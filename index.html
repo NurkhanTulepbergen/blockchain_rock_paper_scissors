@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rock-Paper-Scissors</title>
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Include ethers.js from CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
-
-  <!-- Link JavaScript file -->
-  <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <div>
-    <h1>Rock-Paper-Scissors</h1>
-    <p>Play against the smart contract and see your game history!</p>
-    <br />
-    <label for="choice">Choose your move:</label>
-    <select id="choice">
-      <option value="rock">Rock</option>
-      <option value="paper">Paper</option>
-      <option value="scissors">Scissors</option>
-    </select>
-    <button onclick="play()">Play</button>
-    <br />
-    <h3>Game Result:</h3>
-    <p>Your choice: <span id="userChoice"></span></p>
-    <p>Computer's choice: <span id="computerChoice"></span></p>
-    <p>Result: <span id="gameResult"></span></p>
-    <h3>Game History:</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Your Choice</th>
-          <th>Computer's Choice</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody id="history"></tbody>
-    </table>
-  </div>
+    <div class="container">
+        <h1>Rock-Paper-Scissors dApp</h1>
+        <p>Play against the computer and track your game history!</p>
+
+        <div class="game-section">
+            <h2>Select Your Move</h2>
+            <div class="buttons">
+                <button onclick="playGame('rock')">Rock</button>
+                <button onclick="playGame('paper')">Paper</button>
+                <button onclick="playGame('scissors')">Scissors</button>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>Your Game History</h2>
+            <ul id="history-list"></ul>
+        </div>
+
+        <div class="players-section">
+            <h2>All Players</h2>
+            <ul id="players-list"></ul>
+        </div>
+    </div>
 </body>
 </html>

@@ -16,6 +16,9 @@ contract RockPaperScissors {
     // Mapping to store game history for each user
     mapping(address => Game[]) private gameHistory;
 
+    // Array of unique players
+    address[] private players;
+
     // Event for a new game played
     event GamePlayed(address indexed user, Choice userChoice, Choice computerChoice, string result);
 
@@ -26,7 +29,7 @@ contract RockPaperScissors {
 
         string memory result = _determineWinner(userChoice, computerChoice);
 
-        // Save the game to user's history
+        // Save the game to the user's history
         gameHistory[msg.sender].push(Game({
             user: msg.sender,
             userChoice: userChoice,
@@ -34,13 +37,23 @@ contract RockPaperScissors {
             result: result
         }));
 
+        // Add user to players list if not already added
+        if (gameHistory[msg.sender].length == 1) {
+            players.push(msg.sender);
+        }
+
         // Emit the event
         emit GamePlayed(msg.sender, userChoice, computerChoice, result);
     }
 
     // Get user's game history
-    function getUserGameHistory() public view returns (Game[] memory) {
-        return gameHistory[msg.sender];
+    function getUserGameHistory(address user) public view returns (Game[] memory) {
+        return gameHistory[user];
+    }
+
+    // Get all players
+    function getAllPlayers() public view returns (address[] memory) {
+        return players;
     }
 
     // Internal function to determine the winner

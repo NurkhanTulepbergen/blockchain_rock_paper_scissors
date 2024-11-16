@@ -1,56 +1,57 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    text-align: center;
+    background: #f9f9f9;
     color: #333;
-  }
-  
-  div {
-    margin: 50px auto;
-    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    color: #4caf50;
-  }
-  
-  button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 1.2em;
-    border: none;
-    background-color: #4caf50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.buttons button {
+    background: #4CAF50;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
-  table {
-    margin-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ddd;
-  }
-  
-  th {
-    background-color: #4caf50;
-    color: white;
-  }
-  
+}
 
+.buttons button:hover {
+    background: #45a049;
+}
+
+.history-section, .players-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
