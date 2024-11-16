@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock-Paper-Scissors</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Include ethers.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+
+  <!-- Link JavaScript file -->
+  <script src="script.js"></script>
+</head>
+<body>
+  <div>
+    <h1>Rock-Paper-Scissors</h1>
+    <p>Play against the smart contract and see your game history!</p>
+    <br />
+    <label for="choice">Choose your move:</label>
+    <select id="choice">
+      <option value="rock">Rock</option>
+      <option value="paper">Paper</option>
+      <option value="scissors">Scissors</option>
+    </select>
+    <button onclick="play()">Play</button>
+    <br />
+    <h3>Game Result:</h3>
+    <p>Your choice: <span id="userChoice"></span></p>
+    <p>Computer's choice: <span id="computerChoice"></span></p>
+    <p>Result: <span id="gameResult"></span></p>
+    <h3>Game History:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Your Choice</th>
+          <th>Computer's Choice</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody id="history"></tbody>
+    </table>
+  </div>
+</body>
+</html>
