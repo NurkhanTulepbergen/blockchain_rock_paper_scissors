@@ -9,28 +9,38 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Rock-Paper-Scissors dApp</h1>
-        <p>Play against the computer and track your game history!</p>
+    <div class="game-container">
+        <header>
+            <h1>Rock-Paper-Scissors</h1>
+            <p>Can you beat the computer? Make your choice!</p>
+        </header>
 
-        <div class="game-section">
-            <h2>Select Your Move</h2>
-            <div class="buttons">
-                <button onclick="playGame('rock')">Rock</button>
-                <button onclick="playGame('paper')">Paper</button>
-                <button onclick="playGame('scissors')">Scissors</button>
-            </div>
-        </div>
+        <main>
+            <section class="game-buttons">
+                <button onclick="playGame('rock')" class="game-btn rock">🪨 Rock</button>
+                <button onclick="playGame('paper')" class="game-btn paper">📄 Paper</button>
+                <button onclick="playGame('scissors')" class="game-btn scissors">✂️ Scissors</button>
+            </section>
 
-        <div class="history-section">
-            <h2>Your Game History</h2>
-            <ul id="history-list"></ul>
-        </div>
+            <section class="game-result">
+                <h2>Result</h2>
+                <p id="result-message">Pick an option to start the game!</p>
+            </section>
 
-        <div class="players-section">
-            <h2>All Players</h2>
-            <ul id="players-list"></ul>
-        </div>
+            <section class="game-history">
+                <h2>Game History</h2>
+                <ul id="history-list">
+                    <li>No games played yet.</li>
+                </ul>
+            </section>
+
+            <section class="players-list">
+                <h2>Players</h2>
+                <ul id="players-list">
+                    <li>No players yet.</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>

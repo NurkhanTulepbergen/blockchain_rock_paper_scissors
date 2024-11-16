@@ -1,4 +1,4 @@
-const contractAddress = "YOUR_CONTRACT_ADDRESS";
+const contractAddress = "YOUR_CONTRACT_ADDRESS"; // Replace with your contract address
 const abi = [
     // Add your contract's ABI here
 ];
@@ -39,11 +39,15 @@ async function loadGameHistory() {
     const historyList = document.getElementById("history-list");
     historyList.innerHTML = "";
 
-    history.forEach((game, index) => {
-        const li = document.createElement("li");
-        li.innerText = `Game ${index + 1}: ${game.result} (You: ${game.userChoice}, Computer: ${game.computerChoice})`;
-        historyList.appendChild(li);
-    });
+    if (history.length === 0) {
+        historyList.innerHTML = "<li>No games played yet.</li>";
+    } else {
+        history.forEach((game, index) => {
+            const li = document.createElement("li");
+            li.innerText = `Game ${index + 1}: ${game.result} (You: ${game.userChoice}, Computer: ${game.computerChoice})`;
+            historyList.appendChild(li);
+        });
+    }
 }
 
 async function loadPlayers() {
@@ -51,9 +55,13 @@ async function loadPlayers() {
     const playersList = document.getElementById("players-list");
     playersList.innerHTML = "";
 
-    players.forEach(player => {
-        const li = document.createElement("li");
-        li.innerText = player;
-        playersList.appendChild(li);
-    });
+    if (players.length === 0) {
+        playersList.innerHTML = "<li>No players yet.</li>";
+    } else {
+        players.forEach(player => {
+            const li = document.createElement("li");
+            li.innerText = player;
+            playersList.appendChild(li);
+        });
+    }
 }
