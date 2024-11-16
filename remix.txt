@@ -1,0 +1,80 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+contract RockPaperScissors {
+    // Enum for choices
+    enum Choice { Rock, Paper, Scissors }
+
+    // Struct for a game record
+    struct Game {
+        address user;
+        Choice userChoice;
+        Choice computerChoice;
+        string result; // "Win", "Lose", or "Draw"
+    }
+
+    // Mapping to store game history for each user
+    mapping(address => Game[]) private gameHistory;
+
+    // Event for a new game played
+    event GamePlayed(address indexed user, Choice userChoice, Choice computerChoice, string result);
+
+    // Play the game
+    function play(string memory _userChoice) public {
+        Choice userChoice = _stringToChoice(_userChoice);
+        Choice computerChoice = _randomChoice();
+
+        string memory result = _determineWinner(userChoice, computerChoice);
+
+        // Save the game to user's history
+        gameHistory[msg.sender].push(Game({
+            user: msg.sender,
+            userChoice: userChoice,
+            computerChoice: computerChoice,
+            result: result
+        }));
+
+        // Emit the event
+        emit GamePlayed(msg.sender, userChoice, computerChoice, result);
+    }
+
+    // Get user's game history
+    function getUserGameHistory() public view returns (Game[] memory) {
+        return gameHistory[msg.sender];
+    }
+
+    // Internal function to determine the winner
+    function _determineWinner(Choice userChoice, Choice computerChoice) internal pure returns (string memory) {
+        if (userChoice == computerChoice) {
+            return "Draw";
+        }
+        if (
+            (userChoice == Choice.Rock && computerChoice == Choice.Scissors) ||
+            (userChoice == Choice.Paper && computerChoice == Choice.Rock) ||
+            (userChoice == Choice.Scissors && computerChoice == Choice.Paper)
+        ) {
+            return "Win";
+        }
+        return "Lose";
+    }
+
+    // Internal function to convert string to Choice enum
+    function _stringToChoice(string memory _choice) internal pure returns (Choice) {
+        bytes32 choiceHash = keccak256(abi.encodePacked(_choice));
+        if (choiceHash == keccak256(abi.encodePacked("rock"))) {
+            return Choice.Rock;
+        } else if (choiceHash == keccak256(abi.encodePacked("paper"))) {
+            return Choice.Paper;
+        } else if (choiceHash == keccak256(abi.encodePacked("scissors"))) {
+            return Choice.Scissors;
+        } else {
+            revert("Invalid choice");
+        }
+    }
+
+    // Internal function to generate a random choice for the computer
+    function _randomChoice() internal view returns (Choice) {
+        uint256 random = uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao, msg.sender))) % 3;
+        return Choice(random);
+    }
+}
