@@ -1,0 +1,115 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg'); /* Add the image file path here */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    background: rgba(45, 45, 45, 0.8); /* Slight transparency for the game container */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: purple;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.game-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.game-btn {
+    border: none;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 20px 25px;
+    font-size: 2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+}
+
+.game-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.game-btn.rock {
+    background: purple;
+}
+
+.game-btn.paper {
+    background: #74b9ff;
+}
+
+.game-btn.scissors {
+    background: yellow;
+}
+
+/* Result section */
+.game-result h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: yellow;
+}
+
+#result-message {
+    font-size: 1.2rem;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* History section */
+.game-history h2 {
+    font-size: 1.3rem;
+    margin-top: 30px;
+    color: blueviolet;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+}
+
+#history-list li {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

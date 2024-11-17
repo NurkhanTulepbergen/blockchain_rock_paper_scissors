@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.0/dist/ethers.umd.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Rock-Paper-Scissors</h1>
+            <p>Can you beat the computer? Make your choice!</p>
+        </header>
+
+        <main>
+            <section class="game-buttons">
+                <button onclick="playGame('rock')" class="game-btn rock">🪨 Rock</button>
+                <button onclick="playGame('paper')" class="game-btn paper">📄 Paper</button>
+                <button onclick="playGame('scissors')" class="game-btn scissors">✂️ Scissors</button>
+            </section>
+
+            <section class="game-result">
+                <h2>Result</h2>
+                <p id="result-message">Pick an option to start the game!</p>
+            </section>
+
+            <section class="game-history">
+                <h2>Game History</h2>
+                <ul id="history-list">
+                    <li>No games played yet.</li>
+                </ul>
+            </section>
+
+            <section class="players-list">
+                <h2>Players</h2>
+                <ul id="players-list">
+                    <li>No players yet.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
